@@ -3,7 +3,7 @@ The program is split into two parts: text-based horse racing simulator (part1)
 and the Simulation with GUI (part2)
 
 ## Dependencies
-**Java Development Kit (JDK)**
+**Java Development Kit (JDK)**  
 **Java Swing Library** - This should be include in the JDK
 
 
