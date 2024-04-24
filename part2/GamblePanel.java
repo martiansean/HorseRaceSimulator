@@ -9,7 +9,7 @@ class GamblePanel extends JPanel {
 
     private JTextField betSizeField;
     private Account MyAccount = new Account(1000);
-    private List<Horse> horses;
+    private List<HorseGUI> horses;
     private List<BetPosition> betAmountList = new ArrayList<>();
 
     public GamblePanel() {
@@ -25,20 +25,20 @@ class GamblePanel extends JPanel {
 
     private int RaceNumber() {
         int races = 0;
-        for (Horse horse : horses) {
+        for (HorseGUI horse : horses) {
             races += horse.getWin();
         }
         return races;
     }
 
-    public double calcOdds(Horse horse) {
+    public double calcOdds(HorseGUI horse) {
         if (horse.getWin() == 0) {
             return 1;
         }
         return ((double) RaceNumber() / horse.getWin());
     }
 
-    public void updateBalance(Horse horse) {
+    public void updateBalance(HorseGUI horse) {
         if (!(horse == null)) {
             for (BetPosition bet : betAmountList) {
                 if (bet.getHorseId() == horse.getId()) {
@@ -50,7 +50,7 @@ class GamblePanel extends JPanel {
         }
     }
 
-    public void updateOdds(List<Horse> horses) {
+    public void updateOdds(List<HorseGUI> horses) {
         betAmountList.clear();
         SetBets(horses);
         if (horses != null) {
@@ -59,7 +59,7 @@ class GamblePanel extends JPanel {
             JLabel Balance = new JLabel(MyAccount.getBalance() + " credits, any error will result in bet being 0.");
             Balance.setFont(new Font("Arial", Font.PLAIN, 14));
             add(Balance);
-            for (Horse horse : this.horses) {
+            for (HorseGUI horse : this.horses) {
                 double odds = calcOdds(horse);
                 String oddString = String.format("%.3f", odds);
                 JLabel horseOddsLabel = new JLabel(horse.getName() + " Odd is: x" + oddString);
@@ -73,7 +73,7 @@ class GamblePanel extends JPanel {
         }
     }
 
-    public boolean SetBets(List<Horse> horses) {
+    public boolean SetBets(List<HorseGUI> horses) {
         betAmountList.clear();
         int Total = 0;
         int index = 0;

@@ -5,12 +5,12 @@ import java.util.Random;
 class Track extends JPanel {
     private int length;
     private int pos;
-    private Horse horse;
+    private HorseGUI horse;
 
     private Image horseImage;
     private Image XImage;
 
-    public Track(int length, Horse horse) {
+    public Track(int length, HorseGUI horse) {
         this.length = length;
         this.horse = horse;
         pos = 0;
@@ -23,7 +23,7 @@ class Track extends JPanel {
         setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
     }
 
-    public Horse getHorse() {
+    public HorseGUI getHorse() {
         return horse;
     }
 
@@ -54,27 +54,29 @@ class Track extends JPanel {
         return false;
     }
 
-    public int getXPos(int width, int pos) {
-        return pos + (50 - width) / 2;
+    public int getXPos(int width, int pos, int len) {
+        return pos + (len - width) / 2;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        int horsepos = (int) (((double) pos / length) * (getWidth() - 50));
+        int horsepos = (int) (((double) pos / length) * (getWidth() - 40));
         if (horse.isFell()) {
-            g.drawImage(XImage, horsepos, 20, 50, 50, null);
+            int len = 50;
+            g.drawImage(XImage, horsepos, 20, len, 50, null);
             g.setFont(new Font("Calibri", Font.PLAIN, 16));
             // find the width of the string to align it centre
             FontMetrics fm = g.getFontMetrics();
             int y = 90;
             int width = fm.stringWidth(horse.getName());
             // draw name
-            int x = getXPos(width, horsepos);
+            int x = getXPos(width, horsepos, len);
             g.drawString(horse.getName(), x, y);
         } else {
-            g.drawImage(horseImage, horsepos, 10, 100, 70, null);
+            int len = 100;
+            g.drawImage(horseImage, horsepos, 10, len, 70, null);
             g.setColor(horse.getColor());
             g.fillRect(horsepos + 45, 32, 20, 10);
             g.setColor(Color.BLACK);
@@ -82,7 +84,7 @@ class Track extends JPanel {
             g.setFont(new Font("Calibri", Font.PLAIN, 16));
             FontMetrics fm = g.getFontMetrics();
             int width = fm.stringWidth(horse.getName());
-            int x = getXPos(width, horsepos);
+            int x = getXPos(width, horsepos, len);
             int y = 100;
             g.drawString(horse.getName(), x, y);
         }

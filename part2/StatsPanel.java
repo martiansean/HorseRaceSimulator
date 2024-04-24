@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.List;
 
 class StatsPanel extends JPanel {
-    private List<Horse> horses;
+    private List<HorseGUI> horses;
 
     public StatsPanel() {
         setLayout(new GridLayout(0, 1));
@@ -11,7 +11,7 @@ class StatsPanel extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
-    private double getWinrate(Horse horse) {
+    private double getWinrate(HorseGUI horse) {
         if (horse.getWin() == 0) {
             return 0.0;
         }
@@ -20,17 +20,17 @@ class StatsPanel extends JPanel {
 
     private int NumRace() {
         int races = 0;
-        for (Horse horse : horses) {
+        for (HorseGUI horse : horses) {
             races += horse.getWin();
         }
         return races;
     }
 
-    public void updateStats(List<Horse> horses) {
+    public void updateStats(List<HorseGUI> horses) {
         if (horses != null) {
             this.horses = horses;
             removeAll();
-            for (Horse horse : this.horses) {
+            for (HorseGUI horse : this.horses) {
                 double winrate = getWinrate(horse);
                 double speed = horse.getAvSpeed();
                 String winString = String.format("%.2f", winrate);

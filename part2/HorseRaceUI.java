@@ -34,7 +34,7 @@ public class HorseRaceUI extends JFrame {
     private int trackLength;
     private boolean finished = false;
 
-    private List<Horse> horses;
+    private List<HorseGUI> horses;
     private List<Integer> horseNames;
 
     public HorseRaceUI() {
@@ -141,12 +141,12 @@ public class HorseRaceUI extends JFrame {
             Color horseColor = JColorChooser.showDialog(null, temp, Color.RED);
             // set the default value for horse names and color
             if (name != null && !name.isEmpty()) {
-                Horse horse = getHorseObj(name, i + 1, horseColor);
+                HorseGUI horse = getHorseObj(name, i + 1, horseColor);
                 Track track = new Track(trackLength, horse);
                 trackSection.add(track);
             } else if (name == null || name.isEmpty()) {
                 String defaultName = "Horse_" + (i + 1);
-                Horse horse = getHorseObj(defaultName, i + 1, horseColor);
+                HorseGUI horse = getHorseObj(defaultName, i + 1, horseColor);
                 Track track = new Track(trackLength, horse);
                 trackSection.add(track);
             }
@@ -159,13 +159,13 @@ public class HorseRaceUI extends JFrame {
         gamblePanel.updateOdds(horses);
     }
 
-    private Horse getHorseObj(String name, int id, Color horseColor) {
-        for (Horse horse : horses) {
+    private HorseGUI getHorseObj(String name, int id, Color horseColor) {
+        for (HorseGUI horse : horses) {
             if (horse.getId() == id) {
                 return horse;
             }
         }
-        Horse newHorse = new Horse(name, id, horseColor);
+        HorseGUI newHorse = new HorseGUI(name, id, horseColor);
         horses.add(newHorse);
         return newHorse;
     }
@@ -187,7 +187,7 @@ public class HorseRaceUI extends JFrame {
     private void resetRace() {
         // Reset horses fell attribute
         startbtn.setEnabled(true);
-        for (Horse horse : horses) {
+        for (HorseGUI horse : horses) {
             horse.Fallen(false);
         }
         for (Component component : trackSection.getComponents()) {
@@ -217,7 +217,7 @@ public class HorseRaceUI extends JFrame {
             if (component instanceof Track) {
                 Track track = (Track) component;
                 if (track.moveHorse()) {
-                    Horse horse = track.getHorse();
+                    HorseGUI horse = track.getHorse();
                     if (horse != null && !horse.isFell()) {
                         horse.increaseWin();
                         JOptionPane.showMessageDialog(null, horse.getName() + " won the race!");
@@ -230,7 +230,7 @@ public class HorseRaceUI extends JFrame {
                         return;
                     }
                 } else if (track.moveHorse() == false) {
-                    Horse horse = track.getHorse();
+                    HorseGUI horse = track.getHorse();
                     if (horse != null && horse.isFell()) {
                         if (!horseNames.contains(horse.getId())) {
                             horseNames.add(horse.getId());
