@@ -17,10 +17,10 @@ and the Simulation with GUI (part2)
 
 ### Part 1: Text-based simulation
 #### How to compile and run the program
-1. Ensure that you are in the correct directory (part1)
-2. Execute the following command in the terminal `javac Race.java` in order to compile the program
+1. Ensure that you are in the correct directory (HorseRaceSimulator)
+2. Execute the following command in the terminal `javac part1/Race.java` in order to compile the program
 3. Check if files with `.class` extension are present (They should retain the same file name as .java)
-4. To run the program, in the terminal, run the command `java Race.java startRace`
+4. To run the program, in the terminal, run the command `java part1.Race startRace`
 
 #### Understand the program
 - The program should automatically starts once executed.
@@ -30,10 +30,10 @@ and the Simulation with GUI (part2)
 
 ### Part 2: Graphical User interface Simulation
 #### How to compile and run the program
-1. Ensure that you are in the correct directory (part2)
-2. Execute the following command in the terminal `javac HorseRaceUI.java` in order to compile the program
+1. Ensure that you are in the correct directory (HorseRaceSimulator)
+2. Execute the following command in the terminal `javac part2/HorseRaceUI.java` in order to compile the program
 3. Check if files with `.class` extension are present (They should retain the same file name as .java)
-4. To run the program, in the terminal, run the command `java HorseRaceUI.java startRaceGUI`
+4. To run the program, in the terminal, run the command `java part2.HorseRaceUI startRaceGUI`
 
 #### Understand the program
 **Initial setup**
