@@ -1,3 +1,5 @@
+package part2;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;

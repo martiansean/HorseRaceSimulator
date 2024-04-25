@@ -1,3 +1,5 @@
+package part2;
+
 import java.awt.*;
 
 class HorseGUI {

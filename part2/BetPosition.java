@@ -1,3 +1,5 @@
+package part2;
+
 public class BetPosition {
 
     private double payout;
