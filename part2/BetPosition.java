@@ -14,11 +14,11 @@ public class BetPosition {
 
     @Override
     public String toString() {
-        return "BetPosition{" +
+        return "BetPosition(" +
                 "payout=" + payout +
                 ", betAmount=" + betAmount +
                 ", horseId='" + horseId + '\'' +
-                '}';
+                ')';
     }
 
     public int getReturn(boolean win) {
