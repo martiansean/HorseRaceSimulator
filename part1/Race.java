@@ -65,9 +65,9 @@ public class Race {
         boolean finished = false;
 
         // NEW CODE ADDED
-        Horse horse1 = new Horse('A', "Horse_1", 0.5);
-        Horse horse2 = new Horse('B', "Horse_2", 0.5);
-        Horse horse3 = new Horse('C', "Horse_3", 0.5);
+        Horse horse1 = new Horse('A', "PIPPI LONGSTOCKING", 0.5);
+        Horse horse2 = new Horse('B', "KOKOMO", 0.5);
+        Horse horse3 = new Horse('C', "EL JEFE", 0.5);
 
         addHorse(horse1, 1);
         addHorse(horse2, 2);
