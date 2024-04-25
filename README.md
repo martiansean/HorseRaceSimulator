@@ -3,8 +3,8 @@ The program is split into two parts: text-based horse racing simulator (part1)
 and the Simulation with GUI (part2)
 
 ## Dependencies
-**Java Development Kit (JDK)**  
-**Java Swing Library** - This should be include in the JDK
+- **Java Development Kit (JDK)**
+- **Java Swing Library** - This should be include in the JDK
 
 
 ## Usage and setup
@@ -12,7 +12,8 @@ and the Simulation with GUI (part2)
 ### Setting up the project
 1. Clone the repository.
 2. Navigate into the folder `HorseRaceSimulator`
-3. Navigate into your desire part
+3. Navigate into your desire part  
+**If you are running through an IDE, open each part individually**
 
 ### Part 1: Text-based simulation
 #### How to compile and run the program
@@ -44,7 +45,7 @@ and the Simulation with GUI (part2)
 **Betting Aspect**
 - The user will receive initial 1000 credit to bet.
 - The odds of the horse will be calculated by the win rate. This means as you play the odds will change.
-- At start, the odds of the horse will be 1 since no data is available.
+- At start, the odds of the horse will be 1 since no data is available, so any horse win would double to money.
 - There will be the betting text box for each horse at the bottom panel of the screen.
 - by default, if no bet is enter, the amount will be 0.
 
