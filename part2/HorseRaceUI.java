@@ -147,6 +147,7 @@ public class HorseRaceUI extends JFrame {
                 Track track = new Track(trackLength, horse);
                 trackSection.add(track);
             } else if (name == null || name.isEmpty()) {
+                // incase the horse name is left blank
                 String defaultName = "Horse_" + (i + 1);
                 HorseGUI horse = getHorseObj(defaultName, i + 1, horseColor);
                 Track track = new Track(trackLength, horse);
@@ -206,6 +207,7 @@ public class HorseRaceUI extends JFrame {
             return;
         }
         for (Component component : trackSection.getComponents()) {
+            // check the count of horse that fall
             if (horseNames.size() == numhorse) {
                 JOptionPane.showMessageDialog(null, "All horses fell over - No winnner!");
                 timer.stop();
@@ -216,6 +218,7 @@ public class HorseRaceUI extends JFrame {
                 startbtn.setEnabled(true);
                 return;
             }
+            // move the horse
             if (component instanceof Track) {
                 Track track = (Track) component;
                 if (track.moveHorse()) {
@@ -232,6 +235,7 @@ public class HorseRaceUI extends JFrame {
                         return;
                     }
                 } else if (track.moveHorse() == false) {
+                    // check if the horse has fallen over, and add the horse to the list
                     HorseGUI horse = track.getHorse();
                     if (horse != null && horse.isFell()) {
                         if (!horseNames.contains(horse.getId())) {
