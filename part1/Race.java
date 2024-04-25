@@ -1,3 +1,5 @@
+package part1;
+
 import java.util.concurrent.TimeUnit;
 import java.lang.Math;
 
